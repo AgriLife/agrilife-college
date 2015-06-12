@@ -9,6 +9,18 @@ class RequiredDOM {
 		add_filter( 'genesis_seo_title', array( $this, 'seo_title' ), 10, 3 );
 
         add_filter( 'genesis_seo_title', array( $this, 'display_search' ), 11, 3 );
+        
+        // Identify post category pages with a custom body class name.
+        add_filter( 'body_class', array( $this, 'agriflex_body_class' ) );
+
+        // Modifies post content by removing footer and formatting date information.
+        add_filter( 'genesis_post_info', array( $this, 'agriflex_post_date_filter' ) );
+
+        // Prevents "Filed Under" meta from appearing on post list page.
+        add_filter( 'genesis_post_meta', array( $this, 'agriflex_post_footer_filter' ) );
+
+        // Replace h1 tags with h2 on the main post list page, because Genesis.
+        add_filter( 'genesis_post_title_output', array( $this, 'agriflex_post_title_filter' ) );
 
 		// Remove Site Description
 		//remove_action( 'genesis_site_description', 'genesis_seo_site_description' );
@@ -182,6 +194,57 @@ class RequiredDOM {
 
     }
 
+    /**
+     * Identify post category pages with a custom body class name.
+     * @since 1.0
+     * @return string
+     */
+    public function agriflex_body_class( $classes ) {
+        if ( !is_page() && !is_single() ) {
+            $classes[] = 'posts';
+        }
+        return $classes;
+    }
+    
+    /**
+     * Replace h1 tags with h2 on the main post list page, because Genesis.
+     * @since 1.0
+     * @return string
+     */
+    public function agriflex_post_title_filter( $post_title ) {
+        if ( !is_page() && !is_single() ) {
+            $post_title = str_replace("<h1", "<h2", $post_title);
+            $post_title = str_replace("/h1>", "/h2>", $post_title);
+        }
+        return $post_title;
+    }
+       
+    /**
+     * Modifies post content by removing footer and formatting date information.
+     * @since 1.0
+     * @return string
+     */
+    public function agriflex_post_date_filter( $post_info ) {
+        if (!is_page() && !is_single()) {
+            $wrap = array('<time class="entry-date" datetime="' . esc_attr( get_the_date( 'c' ) ) . '" itemprop="datePublished">', '</time>');
+            $day = '<span class="day">' . esc_html( get_the_date( 'j' ) ) . '</span>';
+            $month = '<span class="month">' . esc_html( get_the_date( 'M' ) ) . '</span>';
+            $post_info = $wrap[0] . $day . $month . $wrap[1];
+        }
+        return $post_info;
+    }
+
+    /**
+     * Prevents "Filed Under" meta from appearing on post list page.
+     * @since 1.0
+     * @return string
+     */
+    public function agriflex_post_footer_filter( $post_footer ) {
+        if ( !is_page() && !is_single() ) {
+          $post_footer = '';
+        }
+        return $post_footer;
+    }
 
     /**
      * Render TAMUS logo
