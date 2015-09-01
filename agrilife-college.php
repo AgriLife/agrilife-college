@@ -32,11 +32,48 @@ $college_asset = new \AgriLife\College\Asset();
 
 $college_templates = new \AgriLife\College\Templates();
 
-add_action( 'agrilife_core_init', function() {
+add_action( 'agrilife_core_init', 'agriflex_register_templates' );
+
+function agriflex_register_templates() {
     $ext_landing_1_template = new \AgriLife\Core\PageTemplate();
     $ext_landing_1_template->with_path( AG_COL_TEMPLATE_PATH )->with_file( 'landing1' )->with_name( 'Landing Page 1' );
     $ext_landing_1_template->register();
-});
+
+    $col_landing_template = new \AgriLife\Core\PageTemplate();
+    $col_landing_template->with_path( AG_COL_TEMPLATE_PATH )->with_file( 'landing-aglifesciences' )->with_name( 'aglifesciences' );
+    $col_landing_template->register();
+};
+
+add_action( 'after_setup_theme', 'agriflex_college_setup' );
+
+function agriflex_college_setup() {
+    register_sidebar( array(
+        'name' => 'Home right sidebar',
+        'id' => 'home_right_1',
+        'before_widget' => '<div id="%1$s" class="widget home-widget widget-container %2$s">',
+        'after_widget' => '</div>',
+        'before_title' => '<h3 class="widget-title">',
+        'after_title' => '</h3>',
+    ) );
+
+    register_sidebar( array(
+        'name' => 'Home Page Bottom Left',
+        'id' => 'sidebar_home_bottom_left',
+        'before_widget' => '<div id="%1$s" class="widget widget-container %2$s">',
+        'after_widget' => '</div>',
+        'before_title' => '<h3 class="widget-title">',
+        'after_title' => '</h3>',
+    ) );
+    
+    register_sidebar( array(
+        'name' => 'Home Page Bottom Right',
+        'id' => 'sidebar_home_bottom_right',
+        'before_widget' => '<div id="%1$s" class="widget widget-container %2$s">',
+        'after_widget' => '</div>',
+        'before_title' => '<h3 class="widget-title">',
+        'after_title' => '</h3>',
+    ) );
+}
 
 //$ext_widget_areas = new \AgriLife\Extension\WidgetAreas();
 /*
@@ -55,4 +92,5 @@ function college_acf_json_load_point( $paths ) {
 
 if ( class_exists( 'Acf' ) ) {
     require_once(AG_COL_DIR_PATH . 'fields/landing1-details.php') ;
+    require_once(AG_COL_DIR_PATH . 'fields/landing-aglifesciences-details.php') ;
 }
