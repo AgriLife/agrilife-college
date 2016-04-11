@@ -63,7 +63,7 @@ class Asset {
             'college-styles',
             AF_THEME_DIRURL . '/css/college.css',
             array(),
-            '',
+            '4.4.3',
             'screen'
         );
 
