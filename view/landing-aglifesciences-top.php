@@ -28,6 +28,7 @@
       </li>       
       <li class="challenge-diversity challenge">
         <a href="<?php echo site_url('/about/diversity/') ?>" id="l4" class="challenge-link">
+          <h2 id="challenge-climateand">Climate &amp;</h2>
           <h2 id="challenge-diversity">Diversity</h2>
         </a>    
       </li>       

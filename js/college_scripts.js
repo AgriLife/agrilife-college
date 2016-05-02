@@ -10,6 +10,7 @@
     $("#challenge-grand1").fitText(0.3);
     $("#challenge-grand2").fitText(0.56);
 
+    $("#challenge-climateand").fitText(0.46);
     $("#challenge-diversity").fitText(0.49);
 
     $("#challenge-accountability").fitText(0.8);
