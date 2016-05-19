@@ -26,6 +26,11 @@ Functionality for College of Agriculture and Life Sciences sites
     * Home right sidebar: Positioned beneath the Soliloquy slider and to the right of both the welcome text and other widget areas
     * Home Page Bottom Left: Positioned beneath the left side of the welcome text
     * Home Page Bottom Right: Positioned beneath the right side of the welcome text
+* Page Layouts
+
+![Content Sidebar](http://agrilife.org/wp-content/themes/genesis/lib/admin/images/layouts/cs.gif)
+![Sidebar Content](http://agrilife.org/wp-content/themes/genesis/lib/admin/images/layouts/sc.gif)
+![Content](http://agrilife.org/wp-content/themes/genesis/lib/admin/images/layouts/c.gif)
 
 ## Development Installation
 
