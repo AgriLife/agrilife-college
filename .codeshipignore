@@ -1,0 +1,7 @@
+bower.json
+composer.json
+config.rb
+package.json
+*.coffee
+*.md
+vendor/composer/autoload_static.php
