@@ -18,7 +18,9 @@ add_action( 'genesis_entry_content', 'aglifesciences_home_content' );
 
 add_action( 'genesis_entry_footer', 'aglifesciences_home_programs' );
 
-add_action( 'genesis_after', 'aglifesciences_background_image' );
+if ( get_theme_mod('agriflex_background_image') != '' && 0 < count( strlen( get_theme_mod('agriflex_background_image') ) ) ) {
+    add_action( 'genesis_after', 'aglifesciences_background_image' );
+}
 
 add_action( 'wp_enqueue_scripts', 'register_template_scripts' );
 
