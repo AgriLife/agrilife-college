@@ -50,6 +50,38 @@ module.exports = (grunt) ->
 			publicjs:
 				src : ['js/src/public-*.js']
 				dest: 'js/public.min.js'
+		compress:
+			main:
+				options:
+					archive: grunt.file.readJSON('package.json').name
+				files: [
+					{src: ['fields/**']},
+					{src: ['js/*.js']},
+					{src: ['src/**']},
+					{src: ['vendor/**', '!vendor/composer/autoload_static.php']},
+					{src: ['view/**']},
+					{src: ['agrilife-college.php']},
+					{src: ['README.md']}
+				]
+		gitinfo:
+			commands:
+				'lastUpdate': ['log', '-1', '--pretty=format:"%s"', '--no-merges']
+		gh_release:
+			options:
+				token: process.env.RELEASE_KEY
+				owner: 'agrilife'
+				repo: grunt.file.readJSON('package.json').name
+			release:
+				tag_name: grunt.file.readJSON('package.json').version
+				target_commitish: 'master'
+				name: 'Release'
+				body: '<%= gitinfo.lastUpdate %>'
+				draft: false
+				prerelease: false
+				asset:
+					name: grunt.file.readJSON('package.json').name + '.zip'
+					file: grunt.file.readJSON('package.json').name + '.zip'
+					'Content-Type': 'application/zip'
 
 	@loadNpmTasks 'grunt-contrib-coffee'
 	@loadNpmTasks 'grunt-contrib-compass'
@@ -57,10 +89,14 @@ module.exports = (grunt) ->
 	@loadNpmTasks 'grunt-contrib-csslint'
 	@loadNpmTasks 'grunt-contrib-concat'
 	@loadNpmTasks 'grunt-contrib-watch'
+	@loadNpmTasks 'grunt-contrib-compress'
+	@loadNpmTasks 'grunt-gh-release'
+	@loadNpmTasks 'grunt-gitinfo'
 
 	@registerTask 'default', ['coffee']
 	@registerTask 'develop', ['coffee', 'jshint']
 	@registerTask 'package', ['default', 'cssmin', 'csslint']
+	@registerTask 'release', ['gitinfo', 'package', 'compress', 'gh_release']
 
 	@event.on 'watch', (action, filepath) =>
 		@log.writeln('#{filepath} has #{action}')
