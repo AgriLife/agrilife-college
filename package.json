@@ -9,8 +9,10 @@
   "repository": "https://github.com/agrilife/agrilife-college",
   "author": "Travis Ward",
   "license": "GPL2+",
+  "dependencies": {
+    "grunt": "~0.4.0"
+  },
   "devDependencies": {
-    "grunt": "~0.4.5",
     "grunt-contrib-concat": "~0.3.0",
     "grunt-contrib-compass": "~0.6.0",
     "grunt-contrib-coffee": "~0.10.0",
