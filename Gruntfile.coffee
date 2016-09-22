@@ -53,7 +53,7 @@ module.exports = (grunt) ->
 		compress:
 			main:
 				options:
-					archive: grunt.file.readJSON('package.json').name
+					archive: grunt.file.readJSON('package.json').name + '.zip'
 				files: [
 					{src: ['fields/**']},
 					{src: ['js/*.js']},
