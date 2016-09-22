@@ -96,7 +96,7 @@ module.exports = (grunt) ->
 	@registerTask 'default', ['coffee']
 	@registerTask 'develop', ['coffee', 'jshint']
 	@registerTask 'package', ['default', 'csslint']
-	@registerTask 'release', ['gitinfo', 'package', 'compress', 'gh_release']
+	@registerTask 'release', ['gitinfo', 'compress', 'gh_release']
 
 	@event.on 'watch', (action, filepath) =>
 		@log.writeln('#{filepath} has #{action}')
