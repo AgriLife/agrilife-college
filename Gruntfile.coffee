@@ -94,7 +94,7 @@ module.exports = (grunt) ->
 	@registerTask 'develop', ['coffee', 'jshint']
 	@registerTask 'package', ['default', 'csslint']
 	@registerTask 'release', ['compress', 'setreleasemsg', 'gh_release']
-  @registerTask 'setreleasemsg', 'Set release message as range of commits', ->
+	@registerTask 'setreleasemsg', 'Set release message as range of commits', ->
     done = @async()
     grunt.util.spawn {
       cmd: 'git'
