@@ -52,9 +52,9 @@ class RequiredDOM {
 	 * @return string
 	 */
 	public function seo_title( $title, $inside, $wrap ) {
-        $college = '<h5 class="college-title">
+        $college = '<div class="college-title">
                         <a href="http://aglifesciences.tamu.edu/"><span>Texas A&amp;M College of Agriculture and Life Sciences</span></a>
-                    </h5>';
+                    </div>';
 
 		$inside = sprintf( '<a href="%s" title="%s"><span>%s</span></a>',
 			esc_attr( get_bloginfo('url') ),
