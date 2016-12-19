@@ -44,9 +44,9 @@ function agriflex_register_templates() {
     $col_landing_template->register();
 };
 
-add_action( 'after_setup_theme', 'agriflex_college_setup' );
+add_action( 'after_setup_theme', 'agriflex3_college_setup' );
 
-function agriflex_college_setup() {
+function agriflex3_college_setup() {
     register_sidebar( array(
         'name' => 'Home right sidebar',
         'id' => 'home_right_1',
@@ -64,7 +64,7 @@ function agriflex_college_setup() {
         'before_title' => '<h3 class="widget-title">',
         'after_title' => '</h3>',
     ) );
-    
+
     register_sidebar( array(
         'name' => 'Home Page Bottom Right',
         'id' => 'sidebar_home_bottom_right',
