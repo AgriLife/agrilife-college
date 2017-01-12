@@ -1,20 +1,22 @@
+![Master branch](https://codeship.com/projects/cfcb2ca0-0f1b-0134-80e0-1e1c023ab022/status?branch=master) on Master branch
+
+![Staging branch](https://codeship.com/projects/cfcb2ca0-0f1b-0134-80e0-1e1c023ab022/status?branch=staging) on Staging branch
+
 # AgriLife College (WordPress Plugin)
 
 Functionality for College of Agriculture and Life Sciences sites
 
 ## WordPress Requirements
 
-1. AgriFlex3 theme
-2. AgriLife Core plugin
-3. Advanced Custom Fields 5 plugin (for Page Templates)
+1. [AgriFlex3 theme](https://github.com/agrilife/agriflex3)
+2. [AgriLife Core plugin](https://github.com/agrilife/agrilife-core)
+3. Advanced Custom Fields 5+ plugin (for Page Templates)
 4. Soliloquy Slider plugin (for Page Templates)
 
 ## Installation
 
-1. Copy this repository to your desktop
-2. Do one of the following:
-    a. Compress this repository and upload it to your WordPress site as a new plugin
-    b. Use FTP/SFTP to upload your copy to the *plugins* folder of your WordPress directory
+1. [Download the latest release](https://github.com/AgriLife/agrilife-college/releases/latest)
+2. Upload the plugin to your site
 
 ## Features
 
