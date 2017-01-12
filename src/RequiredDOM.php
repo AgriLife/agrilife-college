@@ -9,7 +9,7 @@ class RequiredDOM {
 		add_filter( 'genesis_seo_title', array( $this, 'seo_title' ), 10, 3 );
 
         add_filter( 'genesis_seo_title', array( $this, 'display_search' ), 11, 3 );
-        
+
         // Identify post category pages with a custom body class name.
         add_filter( 'body_class', array( $this, 'agriflex_body_class' ) );
 
@@ -205,7 +205,7 @@ class RequiredDOM {
         }
         return $classes;
     }
-    
+
     /**
      * Replace h1 tags with h2 on the main post list page, because Genesis.
      * @since 1.0
@@ -218,7 +218,7 @@ class RequiredDOM {
         }
         return $post_title;
     }
-       
+
     /**
      * Modifies post content by removing footer and formatting date information.
      * @since 1.0
@@ -280,7 +280,7 @@ class RequiredDOM {
 			        <li><a href="http://agrilife.org/required-links/compact/">Compact with Texans</a></li>
 			        <li><a href="http://agrilife.org/required-links/privacy/">Privacy and Security</a></li>
 			        <li><a href="http://itaccessibility.tamu.edu/" target="_blank">Accessibility Policy</a></li>
-			        <li><a href="http://www2.dir.state.tx.us/pubs/Pages/weblink-privacy.aspx" target="_blank">State Link Policy</a></li>
+			        <li><a href="http://publishingext.dir.texas.gov/portal/internal/resources/DocumentLibrary/State%20Website%20Linking%20and%20Privacy%20Policy.pdf" target="_blank">State Link Policy</a></li>
 			        <li><a href="http://www.tsl.state.tx.us/trail" target="_blank">Statewide Search</a></li>
 			        <li><a href="http://www.tamus.edu/veterans/" target="_blank">Veterans Benefits</a></li>
 			        <li><a href="http://fcs.tamu.edu/families/military_families/" target="_blank">Military Families</a></li>
