@@ -1,54 +1,54 @@
 module.exports = (grunt) ->
 	@initConfig
-		pkg   : @file.readJSON('package.json')
-		watch :
+		pkg: @file.readJSON('package.json')
+		watch:
 			files: ['**/**.coffee', '**/*.scss']
 			tasks: ['develop']
 		coffee:
 			compile:
-				expand : true
+				expand: true
 				flatten: true
-				cwd    : 'js/src/'
-				src    : ['*.coffee']
-				dest   : 'js/'
-				ext    : '.js'
+				cwd: 'js/src/'
+				src: ['*.coffee']
+				dest: 'js/'
+				ext: '.js'
 		compass:
 			dist:
 				options:
-					config : 'config.rb'
+					config: 'config.rb'
 					specify: ['css/src/*.scss']
-		jshint :
-			files  : ['js/*.js']
+		jshint:
+			files: ['js/*.js']
 			options:
 				globals:
-					jQuery  : true
-					console : true
-					module  : true
+					jQuery: true
+					console: true
+					module: true
 					document: true
-				force  : true
+				force: true
 		csslint:
 			options:
-				'star-property-hack'       : false
-				'duplicate-properties'     : false
-				'unique-headings'          : false
+				'star-property-hack': false
+				'duplicate-properties': false
+				'unique-headings': false
 			# 'ids': false
 				'display-property-grouping': false
-				'floats'                   : false
-				'outline-none'             : false
-				'box-model'                : false
-				'adjoining-classes'        : false
-				'box-sizing'               : false
-				'universal-selector'       : false
-				'font-sizes'               : false
-				'overqualified-elements'   : false
-				force                      : true
-			src    : ['css/*.css']
-		concat :
-			adminjs :
-				src : ['js/src/admin-*.js']
+				'floats': false
+				'outline-none': false
+				'box-model': false
+				'adjoining-classes': false
+				'box-sizing': false
+				'universal-selector': false
+				'font-sizes': false
+				'overqualified-elements': false
+				force: true
+			src: ['css/*.css']
+		concat:
+			adminjs:
+				src: ['js/src/admin-*.js']
 				dest: 'js/admin.min.js'
 			publicjs:
-				src : ['js/src/public-*.js']
+				src: ['js/src/public-*.js']
 				dest: 'js/public.min.js'
 		compress:
 			main:
@@ -94,33 +94,33 @@ module.exports = (grunt) ->
 	@registerTask 'develop', ['coffee', 'jshint']
 	@registerTask 'package', ['default', 'csslint']
 	@registerTask 'release', ['compress', 'setreleasemsg', 'gh_release']
-  @registerTask 'setreleasemsg', 'Set release message as range of commits', ->
-    done = @async()
-    grunt.util.spawn {
-      cmd: 'git'
-      args: [ 'tag' ]
-    }, (err, result, code) ->
-      if result.stdout isnt ''
-        matches = result.stdout.match /([^\n]+)$/
-        grunt.config.set 'lasttag', matches[1]
-        grunt.task.run 'shortlog'
-      done(err)
-      return
-    return
-  @registerTask 'shortlog', 'Set gh_release body with commit messages since last release', ->
-    done = @async()
-    releaserange = grunt.template.process '<%= lasttag %>..HEAD'
-    grunt.util.spawn {
-      cmd: 'git'
-      args: ['shortlog', releaserange, '--no-merges']
-    }, (err, result, code) ->
-      if result.stdout isnt ''
-        message = result.stdout.replace /(\n)\s\s+/g, '$1- '
-        message = message.replace /\s*\[skip ci\]/g, ''
-        grunt.config 'gh_release.release.body', message
-      done(err)
-      return
-    return
+	@registerTask 'setreleasemsg', 'Set release message as range of commits', ->
+		done = @async()
+		grunt.util.spawn {
+			cmd: 'git'
+			args: [ 'tag' ]
+		}, (err, result, code) ->
+			if result.stdout isnt ''
+				matches = result.stdout.match /([^\n]+)$/
+				grunt.config.set 'lasttag', matches[1]
+				grunt.task.run 'shortlog'
+			done(err)
+			return
+		return
+	@registerTask 'shortlog', 'Set gh_release body with commit messages since last release', ->
+		done = @async()
+		releaserange = grunt.template.process '<%= lasttag %>..HEAD'
+		grunt.util.spawn {
+			cmd: 'git'
+			args: ['shortlog', releaserange, '--no-merges']
+		}, (err, result, code) ->
+			if result.stdout isnt ''
+				message = result.stdout.replace /(\n)\s\s+/g, '$1- '
+				message = message.replace /\s*\[skip ci\]/g, ''
+				grunt.config 'gh_release.release.body', message
+			done(err)
+			return
+		return
 
 	@event.on 'watch', (action, filepath) =>
 		@log.writeln('#{filepath} has #{action}')
