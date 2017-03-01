@@ -6,10 +6,12 @@
  * Time: 12:00 PM
  */
 ?>
-
-<div class="program-head">
-	<h2 class="program-header"><?php the_field( 'program_header' ); ?></h2>
-</div>
+<?php
+if ( '' != trim( get_field( 'program_header' ) ) ) : ?>
+    <div class="program-head">
+        <h2 class="program-header"><?php the_field( 'program_header' ); ?></h2>
+    </div>
+<?php endif; ?>
 <div class="program-list">
     <?php $i = 1; ?>
     <?php $programs = array_chunk( get_field( 'program_units' ), 3 );

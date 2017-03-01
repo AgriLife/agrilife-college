@@ -15,6 +15,12 @@ add_action( 'genesis_entry_content', 'college_home_content' );
 
 add_action( 'genesis_entry_footer', 'college_home_programs');
 
+add_action( 'genesis_before_content', 'college_home_heading' );
+
+function college_home_heading()
+{
+    ?><h1 class="screen-reader-text">Home - <?php echo get_bloginfo('name'); ?></h1><?php
+}
 
 function college_home_top()
 {
