@@ -22,6 +22,22 @@ class RequiredDOM {
         // Replace h1 tags with h2 on the main post list page, because Genesis.
         add_filter( 'genesis_post_title_output', array( $this, 'agriflex_post_title_filter' ) );
 
+        // Custom DOM for primary site on multisite
+        $networkurl = network_site_url();
+        $siteurl = site_url() . '/';
+
+        if( $networkurl === $siteurl ){
+
+            if(!is_home()){
+
+                add_filter( 'body_class', array( $this, 'aglifesciences_header_links_class' ) );
+
+            }
+
+            add_action( 'genesis_header_right', array( $this, 'aglifesciences_header_links' ) );
+
+        }
+
 		// Remove Site Description
 		//remove_action( 'genesis_site_description', 'genesis_seo_site_description' );
 
@@ -52,21 +68,28 @@ class RequiredDOM {
 	 * @return string
 	 */
 	public function seo_title( $title, $inside, $wrap ) {
-        $college = '<div class="college-title">
-                        <a href="http://aglifesciences.tamu.edu/"><span>Texas A&amp;M College of Agriculture and Life Sciences</span></a>
-                    </div>';
 
-		$inside = sprintf( '<a href="%s" title="%s"><span>%s</span></a>',
-			esc_attr( get_bloginfo('url') ),
-			esc_attr( get_bloginfo('name') ),
-			get_bloginfo( 'name' ) );
+        $networkurl = network_site_url();
+        $siteurl = site_url() . '/';
 
-		$title = sprintf( '%s<%s class="site-title" itemprop="headline">%s</%s>',
-            $college,
-			$wrap,
-			$inside,
-			$wrap
-		);
+        $title = '<div class="college-title">
+                            <a href="http://aglifesciences.tamu.edu/"><span>Texas A&amp;M College of Agriculture and Life Sciences</span></a>
+                        </div>';
+
+        if( $networkurl != $siteurl ){
+
+    		$inside = sprintf( '<a href="%s" title="%s"><span>%s</span></a>',
+    			esc_attr( get_bloginfo('url') ),
+    			esc_attr( get_bloginfo('name') ),
+    			get_bloginfo( 'name' ) );
+
+    		$title .= sprintf( '<%s class="site-title" itemprop="headline">%s</%s>',
+    			$wrap,
+    			$inside,
+    			$wrap
+    		);
+
+        }
 
 		return $title;
 	}
@@ -207,6 +230,45 @@ class RequiredDOM {
     }
 
     /**
+     * Add body class for header secondary menu
+     * @since 1.0.7
+     * @return string
+     */
+    public function aglifesciences_header_links_class( $classes ){
+
+        preg_match( '/[\w\d\-]+\.php$/', get_page_template_slug(), $template );
+
+        if( $template[0] != 'landing-aglifesciences.php' ){
+
+            $classes[] = 'mainsite-internalpage';
+
+        }
+
+        return $classes;
+
+    }
+
+    /**
+     * Add header secondary menu for common demographics
+     * @since 1.0.7
+     * @return string
+     */
+    public function aglifesciences_header_links(){
+
+        preg_match( '/[\w\d\-]+\.php$/', get_page_template_slug(), $template );
+
+        if( $template[0] != 'landing-aglifesciences.php' ){
+
+        ?>
+    <div class="menu-secondary">
+        <ul id="menu-secondary" class="secondary-nav"><li class="menu-item"><a href="http://aglifesciences.tamu.edu/future-students/">Future Students</a></li><li class="menu-item"><a href="http://aglifesciences.tamu.edu/students/">Current Students</a></li><li class="menu-item"><a href="http://aglifesciences.tamu.edu/former-students/">Former Students</a></li><li class="menu-item"><a href="http://aglifesciences.tamu.edu/faculty-staff/">Faculty and Staff</a></li></ul>
+    </div>
+        <?php
+
+        }
+    }
+
+    /**
      * Replace h1 tags with h2 on the main post list page, because Genesis.
      * @since 1.0
      * @return string
@@ -285,7 +347,7 @@ class RequiredDOM {
 			        <li><a href="http://www.tamus.edu/veterans/" target="_blank">Veterans Benefits</a></li>
 			        <li><a href="http://fcs.tamu.edu/families/military_families/" target="_blank">Military Families</a></li>
 			        <li><a href="https://secure.ethicspoint.com/domain/en/report_custom.asp?clientid=19681" target="_blank">Risk, Fraud &amp; Misconduct Hotline</a></li>
-			        <li><a href="http://www.texashomelandsecurity.com/" target="_blank">Texas Homeland Security</a></li>
+			        <li><a href="https://gov.texas.gov/organization/hsgd" target="_blank">Texas Homeland Security</a></li>
 			        <li><a href="http://veterans.portal.texas.gov/">Texas Veteran&apos;s Portal</a></li>
 			        <li><a href="http://agrilifeas.tamu.edu/hr/diversity/equal-opportunity-educational-programs/" target="_blank">Equal Opportunity</a></li>
 			        <li class="last"><a href="http://agrilife.org/required-links/orpi/">Open Records/Public Information</a></li>

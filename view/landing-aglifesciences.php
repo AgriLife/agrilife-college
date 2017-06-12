@@ -33,20 +33,7 @@ add_action( 'wp_enqueue_scripts', 'enqueue_template_styles' );
 function aglifesciences_header_links(){
     ?>
     <div class="menu-secondary">
-        <ul id="menu-secondary" class="secondary-nav">
-            <li class="menu-item">
-                <a href="http://aglifesciences.tamu.edu/future-students/">Future Students</a>
-            </li>
-            <li class="menu-item">
-                <a href="http://aglifesciences.tamu.edu/students/">Current Students</a>
-            </li>
-            <li class="menu-item">
-                <a href="http://aglifesciences.tamu.edu/former-students/">Former Students</a>
-            </li>
-            <li class="menu-item">
-                <a href="http://aglifesciences.tamu.edu/faculty-staff/">Faculty and Staff</a>
-            </li>
-        </ul>
+        <ul id="menu-secondary" class="secondary-nav"><li class="menu-item"><a href="http://aglifesciences.tamu.edu/future-students/">Future Students</a></li><li class="menu-item"><a href="http://aglifesciences.tamu.edu/students/">Current Students</a></li><li class="menu-item"><a href="http://aglifesciences.tamu.edu/former-students/">Former Students</a></li><li class="menu-item"><a href="http://aglifesciences.tamu.edu/faculty-staff/">Faculty and Staff</a></li></ul>
     </div>
     <?php
 }
@@ -115,8 +102,8 @@ function aglifesciences_home_content()
 
         <section id="aside" role="main">
             <?php if ( ! dynamic_sidebar( 'home_right_1' ) ) : ?>
-              
-              
+
+
             <?php endif; ?>
         </section><!-- /end #content -->
     </div>
