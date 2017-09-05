@@ -71,23 +71,24 @@ class RequiredDOM {
 
         $networkurl = network_site_url();
         $siteurl = site_url() . '/';
+        preg_match( '/[\w\d\-]+\.php$/', get_page_template(), $template );
 
         $title = '<div class="college-title">
                             <a href="http://aglifesciences.tamu.edu/"><span>Texas A&amp;M College of Agriculture and Life Sciences</span></a>
                         </div>';
 
-        if( $networkurl != $siteurl ){
+        if( $networkurl != $siteurl || $template[0] != 'landing-aglifesciences.php' ){
 
     		$inside = sprintf( '<a href="%s" title="%s"><span>%s</span></a>',
     			esc_attr( get_bloginfo('url') ),
     			esc_attr( get_bloginfo('name') ),
     			get_bloginfo( 'name' ) );
 
-    		$title .= sprintf( '<%s class="site-title" itemprop="headline">%s</%s>',
-    			$wrap,
-    			$inside,
-    			$wrap
-    		);
+            $title .= sprintf( '<%s class="site-title" itemprop="headline">%s</%s>',
+                $wrap,
+                $inside,
+                $wrap
+            );
 
         }
 
@@ -236,7 +237,7 @@ class RequiredDOM {
      */
     public function aglifesciences_header_links_class( $classes ){
 
-        preg_match( '/[\w\d\-]+\.php$/', get_page_template_slug(), $template );
+        preg_match( '/[\w\d\-]+\.php$/', get_page_template(), $template );
 
         if( $template[0] != 'landing-aglifesciences.php' ){
 
@@ -255,7 +256,7 @@ class RequiredDOM {
      */
     public function aglifesciences_header_links(){
 
-        preg_match( '/[\w\d\-]+\.php$/', get_page_template_slug(), $template );
+        preg_match( '/[\w\d\-]+\.php$/', get_page_template(), $template );
 
         if( $template[0] != 'landing-aglifesciences.php' ){
 
