@@ -1,6 +1,6 @@
 {
   "name": "agrilife-college",
-  "version": "1.1.2",
+  "version": "1.1.3",
   "description": "Functionality for AgriLife College sites",
   "main": "agrilife-college.php",
   "scripts": {

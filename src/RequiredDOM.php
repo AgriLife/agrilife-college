@@ -28,11 +28,7 @@ class RequiredDOM {
 
         if( $networkurl === $siteurl ){
 
-            if(!is_home()){
-
-                add_filter( 'body_class', array( $this, 'aglifesciences_header_links_class' ) );
-
-            }
+            add_filter( 'body_class', array( $this, 'aglifesciences_header_links_class' ) );
 
             add_action( 'genesis_header_right', array( $this, 'aglifesciences_header_links' ) );
 
@@ -71,7 +67,15 @@ class RequiredDOM {
 
         $networkurl = network_site_url();
         $siteurl = site_url() . '/';
-        preg_match( '/[\w\d\-]+\.php$/', get_page_template(), $template );
+
+        $tslug = get_page_template_slug();
+        $template = array('page.php');
+
+        if(!empty($tslug)){
+
+            preg_match( '/[\w\d\-]+\.php$/', $tslug, $template );
+
+        }
 
         $title = '<div class="college-title">
                             <a href="http://aglifesciences.tamu.edu/"><span>Texas A&amp;M College of Agriculture and Life Sciences</span></a>
@@ -237,7 +241,14 @@ class RequiredDOM {
      */
     public function aglifesciences_header_links_class( $classes ){
 
-        preg_match( '/[\w\d\-]+\.php$/', get_page_template(), $template );
+        $tslug = get_page_template_slug();
+        $template = array('page.php');
+
+        if(!empty($tslug)){
+
+            preg_match( '/[\w\d\-]+\.php$/', $tslug, $template );
+
+        }
 
         if( $template[0] != 'landing-aglifesciences.php' ){
 
@@ -256,7 +267,14 @@ class RequiredDOM {
      */
     public function aglifesciences_header_links(){
 
-        preg_match( '/[\w\d\-]+\.php$/', get_page_template(), $template );
+        $tslug = get_page_template_slug();
+        $template = array('page.php');
+
+        if(!empty($tslug)){
+
+            preg_match( '/[\w\d\-]+\.php$/', $tslug, $template );
+
+        }
 
         if( $template[0] != 'landing-aglifesciences.php' ){
 
