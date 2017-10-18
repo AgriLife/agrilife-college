@@ -175,7 +175,7 @@ class RequiredDOM {
 
         $output = '
             <div class="footer-container-ext">
-                <a href="http://agrilifeextension.tamu.edu/" title="Texas A&M AgriLife Extension Service"><img class="footer-ext-logo" src="'.AG_EXT_DIR_URL.'/img/logo-ext.png" title="Texas A&M AgriLife Extension Service" alt="Texas A&M AgriLife Extension Service" /><noscript><img src="//agrilifecdn.tamu.edu/wp-content/themes/AgriLife-Beta/images/footer-tamus.png" title="Texas A&M University System Member" alt="Texas A&M University System Member" /></noscript></a>
+                <a href="http://agrilifeextension.tamu.edu/" title="Texas A&M AgriLife Extension Service"><img class="footer-ext-logo" src="'.AG_EXT_DIR_URL.'/img/logo-ext.png" title="Texas A&M AgriLife Extension Service" alt="Texas A&M AgriLife Extension Service" /><noscript><img src="'.AF_THEME_DIRURL.'/img/footer-tamus-maroon.png" title="Texas A&M University System Member" alt="Texas A&M University System Member" /></noscript></a>
             </div>';
 
         echo $output;
@@ -339,7 +339,7 @@ class RequiredDOM {
         $output = '
             <div class="footer-container-tamus">
                 <a href="http://tamus.edu/" title="Texas A&amp;M University System"><img class="footer-tamus" src="'.AG_EXT_DIR_URL.'/img/logo-tamus.png" title="Texas A&amp;M University System Member" alt="Texas A&amp;M University System Member" />
-                <noscript><img src="//agrilifecdn.tamu.edu/wp-content/themes/AgriLife-Beta/images/footer-tamus.png" title="Texas A&amp;M University System Member" alt="Texas A&amp;M University System Member" /></noscript></a>
+                <noscript><img src="'.AF_THEME_DIRURL.'/img/footer-tamus-maroon.png" title="Texas A&amp;M University System Member" alt="Texas A&amp;M University System Member" /></noscript></a>
             </div>';
 
         echo $output;
@@ -364,7 +364,7 @@ class RequiredDOM {
 			        <li><a href="http://publishingext.dir.texas.gov/portal/internal/resources/DocumentLibrary/State%20Website%20Linking%20and%20Privacy%20Policy.pdf" target="_blank">State Link Policy</a></li>
 			        <li><a href="http://www.tsl.state.tx.us/trail" target="_blank">Statewide Search</a></li>
 			        <li><a href="http://www.tamus.edu/veterans/" target="_blank">Veterans Benefits</a></li>
-			        <li><a href="https://fch.tamu.edu/programs/military-programs/" target="_blank">Military Families</a></li>
+			        <li><a href="http://fcs.tamu.edu/families/military_families/" target="_blank">Military Families</a></li>
 			        <li><a href="https://secure.ethicspoint.com/domain/en/report_custom.asp?clientid=19681" target="_blank">Risk, Fraud &amp; Misconduct Hotline</a></li>
 			        <li><a href="https://gov.texas.gov/organization/hsgd" target="_blank">Texas Homeland Security</a></li>
 			        <li><a href="http://veterans.portal.texas.gov/">Texas Veteran&apos;s Portal</a></li>
