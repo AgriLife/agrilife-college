@@ -26,12 +26,17 @@ define( 'AG_COL_TEMPLATE_PATH', AG_COL_DIR_PATH . 'view' );
 //$deactivate = new \AgriLife\Core\Deactivate;
 //register_deactivation_hook( __FILE__, array( $deactivate, 'run' ) );
 
-$college_required_dom = new \AgriLife\College\RequiredDOM();
+if(class_exists('\AgriLife\College\RequiredDOM')){
+    $college_required_dom = new \AgriLife\College\RequiredDOM();
+}
 
-$college_asset = new \AgriLife\College\Asset();
+if(class_exists('\AgriLife\College\Asset')){
+    $college_asset = new \AgriLife\College\Asset();
+}
 
-$college_templates = new \AgriLife\College\Templates();
-
+if(class_exists('\AgriLife\College\Templates')){
+    $college_templates = new \AgriLife\College\Templates();
+}
 add_action( 'agrilife_core_init', 'agriflex_register_templates' );
 
 function agriflex_register_templates() {

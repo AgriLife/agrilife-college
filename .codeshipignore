@@ -2,5 +2,7 @@ bower.json
 composer.json
 config.rb
 package.json
+known-issues.json
+vipscan.json
 *.coffee
 *.md
