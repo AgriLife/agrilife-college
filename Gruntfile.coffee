@@ -88,7 +88,6 @@ module.exports = (grunt) ->
 	@loadNpmTasks 'grunt-contrib-watch'
 	@loadNpmTasks 'grunt-contrib-compress'
 	@loadNpmTasks 'grunt-gh-release'
-	@loadNpmTasks 'grunt-gitinfo'
 
 	@registerTask 'default', ['coffee']
 	@registerTask 'develop', ['coffee', 'jshint']
