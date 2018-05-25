@@ -26,7 +26,7 @@ class RequiredDOM {
         $networkurl = network_site_url();
         $siteurl = site_url() . '/';
 
-        if( $networkurl === $siteurl ){
+        if( $networkurl === $siteurl && strpos($siteurl, 'biochemistry') === false){
 
             add_filter( 'body_class', array( $this, 'aglifesciences_header_links_class' ) );
 
