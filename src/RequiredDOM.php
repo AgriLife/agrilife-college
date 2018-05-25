@@ -88,11 +88,15 @@ class RequiredDOM {
     			esc_attr( get_bloginfo('name') ),
     			get_bloginfo( 'name' ) );
 
-            $title .= sprintf( '<%s class="site-title" itemprop="headline">%s</%s>',
-                $wrap,
-                $inside,
-                $wrap
-            );
+            if( get_current_blog_id() > 1 ){
+
+                $title .= sprintf( '<%s class="site-title" itemprop="headline">%s</%s>',
+                    $wrap,
+                    $inside,
+                    $wrap
+                );
+
+            }
 
         }
 
