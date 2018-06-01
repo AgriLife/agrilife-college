@@ -3,10 +3,10 @@ namespace AgriLife\College;
 
 class RequiredDOM {
 
-	public function __construct() {
+    public function __construct() {
 
-		// Alter header title
-		add_filter( 'genesis_seo_title', array( $this, 'seo_title' ), 10, 3 );
+        // Alter header title
+        add_filter( 'genesis_seo_title', array( $this, 'seo_title' ), 10, 3 );
 
         add_filter( 'genesis_seo_title', array( $this, 'display_search' ), 11, 3 );
 
@@ -34,8 +34,8 @@ class RequiredDOM {
 
         }
 
-		// Remove Site Description
-		//remove_action( 'genesis_site_description', 'genesis_seo_site_description' );
+        // Remove Site Description
+        //remove_action( 'genesis_site_description', 'genesis_seo_site_description' );
 
         // Add Extension Body Class
         //add_filter( 'body_class', array( $this, 'ext_body_class') );
@@ -52,56 +52,42 @@ class RequiredDOM {
         // Move tagline below navigation
         //add_action('genesis_header',array($this, 'move_tagline') );
 
-	}
+    }
 
-	/**
-	 * Modifies the header title
-	 *
-	 * @param $title The title text
-	 * @param $inside
-	 * @param $wrap
-	 *
-	 * @return string
-	 */
-	public function seo_title( $title, $inside, $wrap ) {
-
-        $networkurl = network_site_url();
-        $siteurl = site_url() . '/';
-
-        $tslug = get_page_template_slug();
-        $template = array('page.php');
-
-        if(!empty($tslug)){
-
-            preg_match( '/[\w\d\-]+\.php$/', $tslug, $template );
-
-        }
+    /**
+     * Modifies the header title
+     *
+     * @param $title The title text
+     * @param $inside
+     * @param $wrap
+     *
+     * @return string
+     */
+    public function seo_title( $title, $inside, $wrap ) {
 
         $title = '<div class="college-title">
                             <a href="http://aglifesciences.tamu.edu/"><span>Texas A&amp;M College of Agriculture and Life Sciences</span></a>
                         </div>';
 
-        if( $networkurl != $siteurl || $template[0] != 'landing-aglifesciences.php' ){
+        $networkurl = parse_url(network_site_url());
 
-    		$inside = sprintf( '<a href="%s" title="%s"><span>%s</span></a>',
-    			esc_attr( get_bloginfo('url') ),
-    			esc_attr( get_bloginfo('name') ),
-    			get_bloginfo( 'name' ) );
+        if( get_current_blog_id() !== 1 || $networkurl['host'] !== 'aglifesciences.tamu.edu' ){
 
-            if( get_current_blog_id() > 1 ){
+            $inside = sprintf( '<a href="%s" title="%s"><span>%s</span></a>',
+                esc_attr( get_bloginfo('url') ),
+                esc_attr( get_bloginfo('name') ),
+                get_bloginfo( 'name' ) );
 
-                $title .= sprintf( '<%s class="site-title" itemprop="headline">%s</%s>',
-                    $wrap,
-                    $inside,
-                    $wrap
-                );
-
-            }
+            $title .= sprintf( '<%s class="site-title" itemprop="headline">%s</%s>',
+                $wrap,
+                $inside,
+                $wrap
+            );
 
         }
 
-		return $title;
-	}
+        return $title;
+    }
 
 
     /**
@@ -186,12 +172,12 @@ class RequiredDOM {
 
     }
 
-	/**
-	 * Render the widgets in the footer
-	 * @since 1.0
-	 * @return void
-	 */
-	public function render_footer_widgets() {
+    /**
+     * Render the widgets in the footer
+     * @since 1.0
+     * @return void
+     */
+    public function render_footer_widgets() {
 
         if ( is_active_sidebar( 'footer-center' ) ) : ?>
             <div id="footer-center-widgets" class="footer-center widget-area" role="complementary">
@@ -199,7 +185,7 @@ class RequiredDOM {
             </div><!-- #footer-center-widgets -->
         <?php endif;
 
-	}
+    }
 
     /**
      * Remove search from navigation
@@ -362,19 +348,19 @@ class RequiredDOM {
         $output = '
             <div class="footer-container-required">
                 <ul class="req-links">
-			        <li><a href="http://agrilife.org/required-links/compact/">Compact with Texans</a></li>
-			        <li><a href="http://agrilife.org/required-links/privacy/">Privacy and Security</a></li>
-			        <li><a href="http://itaccessibility.tamu.edu/" target="_blank">Accessibility Policy</a></li>
-			        <li><a href="http://publishingext.dir.texas.gov/portal/internal/resources/DocumentLibrary/State%20Website%20Linking%20and%20Privacy%20Policy.pdf" target="_blank">State Link Policy</a></li>
-			        <li><a href="http://www.tsl.state.tx.us/trail" target="_blank">Statewide Search</a></li>
-			        <li><a href="http://www.tamus.edu/veterans/" target="_blank">Veterans Benefits</a></li>
-			        <li><a href="http://fcs.tamu.edu/families/military_families/" target="_blank">Military Families</a></li>
-			        <li><a href="https://secure.ethicspoint.com/domain/en/report_custom.asp?clientid=19681" target="_blank">Risk, Fraud &amp; Misconduct Hotline</a></li>
-			        <li><a href="https://gov.texas.gov/organization/hsgd" target="_blank">Texas Homeland Security</a></li>
-			        <li><a href="http://veterans.portal.texas.gov/">Texas Veteran&apos;s Portal</a></li>
-			        <li><a href="http://agrilifeas.tamu.edu/hr/diversity/equal-opportunity-educational-programs/" target="_blank">Equal Opportunity</a></li>
-			        <li class="last"><a href="http://agrilife.org/required-links/orpi/">Open Records/Public Information</a></li>
-		        </ul>
+                    <li><a href="http://agrilife.org/required-links/compact/">Compact with Texans</a></li>
+                    <li><a href="http://agrilife.org/required-links/privacy/">Privacy and Security</a></li>
+                    <li><a href="http://itaccessibility.tamu.edu/" target="_blank">Accessibility Policy</a></li>
+                    <li><a href="http://publishingext.dir.texas.gov/portal/internal/resources/DocumentLibrary/State%20Website%20Linking%20and%20Privacy%20Policy.pdf" target="_blank">State Link Policy</a></li>
+                    <li><a href="http://www.tsl.state.tx.us/trail" target="_blank">Statewide Search</a></li>
+                    <li><a href="http://www.tamus.edu/veterans/" target="_blank">Veterans Benefits</a></li>
+                    <li><a href="http://fcs.tamu.edu/families/military_families/" target="_blank">Military Families</a></li>
+                    <li><a href="https://secure.ethicspoint.com/domain/en/report_custom.asp?clientid=19681" target="_blank">Risk, Fraud &amp; Misconduct Hotline</a></li>
+                    <li><a href="https://gov.texas.gov/organization/hsgd" target="_blank">Texas Homeland Security</a></li>
+                    <li><a href="http://veterans.portal.texas.gov/">Texas Veteran&apos;s Portal</a></li>
+                    <li><a href="http://agrilifeas.tamu.edu/hr/diversity/equal-opportunity-educational-programs/" target="_blank">Equal Opportunity</a></li>
+                    <li class="last"><a href="http://agrilife.org/required-links/orpi/">Open Records/Public Information</a></li>
+                </ul>
             </div>';
 
         echo $output;
