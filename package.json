@@ -1,10 +1,13 @@
 {
   "name": "agrilife-college",
-  "version": "1.1.9",
+  "version": "1.1.10",
   "description": "Functionality for AgriLife College sites",
   "main": "agrilife-college.php",
   "scripts": {
-    "test": "phpunit"
+    "start": "composer install && npm install && grunt",
+    "checkwp": "npm run configphpcs && npm run checkphp",
+    "configphpcs": "vendor/bin/phpcs --config-set installed_paths vendor/wp-coding-standards/wpcs && vendor/bin/phpcs --config-set ignore_errors_on_exit 1 && vendor/bin/phpcs --config-set ignore_warnings_on_exit 1",
+    "checkphp": "vendor/bin/phpcs --standard=WordPress --report=source ./*.php ./src ./view && vendor/bin/phpcs --standard=WordPress ./*.php ./src ./view"
   },
   "repository": "https://github.com/agrilife/agrilife-college",
   "author": "Travis Ward",
@@ -23,5 +26,8 @@
     "curlrequest": "~0.3.10",
     "underscore": "~1.8.3",
     "grunt-gh-release": "0.0.2"
+  },
+  "engines": {
+    "node": ">=6.0.0"
   }
 }
