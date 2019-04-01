@@ -36,6 +36,7 @@ Functionality for College of Agriculture and Life Sciences sites
 
 ## Development Installation
 
-1. Copy this repo to the desired location
-2. In your terminal, navigate to the plugin location `cd /path/to/the/plugin`
-3. Run `composer install` to set up the php modules
+1. Copy this repo to the desired location.
+2. In your terminal, navigate to the plugin location `cd /path/to/the/plugin`.
+3. Run `npm start` to set up the plugin for a production environment.
+4. Run `npm start -- develop` to set up the plugin for a development environment.
