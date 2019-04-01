@@ -67,7 +67,7 @@ module.exports = (grunt) ->
 					{src: ['src/**']},
 					{src: ['vendor/**']},
 					{src: ['view/**']},
-					{src: ['agrilife-college.php']},
+					{src: ['*.php']},
 					{src: ['README.md']}
 				]
 
@@ -79,9 +79,6 @@ module.exports = (grunt) ->
 	@loadNpmTasks 'grunt-contrib-watch'
 	@loadNpmTasks 'grunt-contrib-compress'
 
-	@registerTask 'default', ['coffee']
-	@registerTask 'develop', ['coffee', 'jshint']
-	@registerTask 'package', ['default', 'csslint']
 	@registerTask 'default', ['coffee', 'csslint']
 	@registerTask 'develop', ['coffee', 'csslint', 'jshint']
   @registerTask 'release', ['compress', 'makerelease']
