@@ -2,10 +2,8 @@ bower.json
 composer.json
 config.rb
 package.json
-known-issues.json
-vipscan.json
 *.coffee
 *.md
 vendor/wp-coding-standards
 vendor/squizlabs
-agrilife-college.zip
+*.zip

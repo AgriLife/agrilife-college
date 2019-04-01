@@ -3,7 +3,7 @@
  * Plugin Name: AgriLife College
  * Plugin URI: https://github.com/AgriLife/AgriLife-College
  * Description: Functionality for AgriLife College sites using AgriFlex 3
- * Version: 1.0
+ * Version: 1.2.0
  * Author: Travis Ward
  * Author URI: http://travisward.com
  * Author Email: travis@travisward.com
