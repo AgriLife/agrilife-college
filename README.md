@@ -30,9 +30,9 @@ Functionality for College of Agriculture and Life Sciences sites
     * Home Page Bottom Right: Positioned beneath the right side of the welcome text
 * Page Layouts
 
-![Content Sidebar](http://agrilife.org/wp-content/themes/genesis/lib/admin/images/layouts/cs.gif)
-![Sidebar Content](http://agrilife.org/wp-content/themes/genesis/lib/admin/images/layouts/sc.gif)
-![Content](http://agrilife.org/wp-content/themes/genesis/lib/admin/images/layouts/c.gif)
+![Content Sidebar](https://agrilife.tamu.edu/wp-content/themes/genesis/lib/admin/images/layouts/cs.gif)
+![Sidebar Content](https://agrilife.tamu.edu/wp-content/themes/genesis/lib/admin/images/layouts/sc.gif)
+![Content](https://agrilife.tamu.edu/wp-content/themes/genesis/lib/admin/images/layouts/c.gif)
 
 ## Development Installation
 

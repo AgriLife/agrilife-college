@@ -66,7 +66,7 @@ class RequiredDOM {
     public function seo_title( $title, $inside, $wrap ) {
 
         $title = '<div class="college-title">
-                            <a href="http://aglifesciences.tamu.edu/"><span>Texas A&amp;M College of Agriculture and Life Sciences</span></a>
+                            <a href="https://aglifesciences.tamu.edu/"><span>Texas A&amp;M College of Agriculture and Life Sciences</span></a>
                         </div>';
 
         $networkurl = parse_url(network_site_url());
@@ -165,7 +165,7 @@ class RequiredDOM {
 
         $output = '
             <div class="footer-container-ext">
-                <a href="http://agrilifeextension.tamu.edu/" title="Texas A&M AgriLife Extension Service"><img class="footer-ext-logo" src="'.AG_EXT_DIR_URL.'/img/logo-ext.png" title="Texas A&M AgriLife Extension Service" alt="Texas A&M AgriLife Extension Service" /><noscript><img src="'.AF_THEME_DIRURL.'/img/footer-tamus-maroon.png" title="Texas A&M University System Member" alt="Texas A&M University System Member" /></noscript></a>
+                <a href="https://agrilifeextension.tamu.edu/" title="Texas A&M AgriLife Extension Service"><img class="footer-ext-logo" src="'.AG_EXT_DIR_URL.'/img/logo-ext.png" title="Texas A&M AgriLife Extension Service" alt="Texas A&M AgriLife Extension Service" /><noscript><img src="'.AF_THEME_DIRURL.'/img/footer-tamus-maroon.png" title="Texas A&M University System Member" alt="Texas A&M University System Member" /></noscript></a>
             </div>';
 
         echo $output;
@@ -270,7 +270,7 @@ class RequiredDOM {
 
         ?>
     <div class="menu-secondary">
-        <ul id="menu-secondary" class="secondary-nav"><li class="menu-item"><a href="http://aglifesciences.tamu.edu/future-students/">Future Students</a></li><li class="menu-item"><a href="http://aglifesciences.tamu.edu/students/">Current Students</a></li><li class="menu-item"><a href="http://aglifesciences.tamu.edu/former-students/">Former Students</a></li><li class="menu-item"><a href="http://aglifesciences.tamu.edu/faculty-staff/">Faculty and Staff</a></li></ul>
+        <ul id="menu-secondary" class="secondary-nav"><li class="menu-item"><a href="https://aglifesciences.tamu.edu/future-students/">Future Students</a></li><li class="menu-item"><a href="https://aglifesciences.tamu.edu/students/">Current Students</a></li><li class="menu-item"><a href="https://aglifesciences.tamu.edu/former-students/">Former Students</a></li><li class="menu-item"><a href="https://aglifesciences.tamu.edu/faculty-staff/">Faculty and Staff</a></li></ul>
     </div>
         <?php
 
@@ -348,8 +348,8 @@ class RequiredDOM {
         $output = '
             <div class="footer-container-required">
                 <ul class="req-links">
-                    <li><a href="http://agrilife.org/required-links/compact/">Compact with Texans</a></li>
-                    <li><a href="http://agrilife.org/required-links/privacy/">Privacy and Security</a></li>
+                    <li><a href="https://agrilife.tamu.edu/required-links/compact/">Compact with Texans</a></li>
+                    <li><a href="https://agrilife.tamu.edu/required-links/privacy/">Privacy and Security</a></li>
                     <li><a href="http://itaccessibility.tamu.edu/" target="_blank">Accessibility Policy</a></li>
                     <li><a href="http://publishingext.dir.texas.gov/portal/internal/resources/DocumentLibrary/State%20Website%20Linking%20and%20Privacy%20Policy.pdf" target="_blank">State Link Policy</a></li>
                     <li><a href="http://www.tsl.state.tx.us/trail" target="_blank">Statewide Search</a></li>
@@ -358,8 +358,8 @@ class RequiredDOM {
                     <li><a href="https://secure.ethicspoint.com/domain/en/report_custom.asp?clientid=19681" target="_blank">Risk, Fraud &amp; Misconduct Hotline</a></li>
                     <li><a href="https://gov.texas.gov/organization/hsgd" target="_blank">Texas Homeland Security</a></li>
                     <li><a href="http://veterans.portal.texas.gov/">Texas Veterans Portal</a></li>
-                    <li><a href="http://agrilifeas.tamu.edu/hr/diversity/equal-opportunity-educational-programs/" target="_blank">Equal Opportunity</a></li>
-                    <li class="last"><a href="http://agrilife.org/required-links/orpi/">Open Records/Public Information</a></li>
+                    <li><a href="https://agrilifeas.tamu.edu/hr/diversity/equal-opportunity-educational-programs/" target="_blank">Equal Opportunity</a></li>
+                    <li class="last"><a href="https://agrilife.tamu.edu/required-links/orpi/">Open Records/Public Information</a></li>
                 </ul>
             </div>';
 
