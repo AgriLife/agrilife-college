@@ -58,7 +58,8 @@ class Asset {
      * @return void
      */
     public function register_college_styles() {
-
+	// Define the AF_THEME_DIRURL constant with the URL of the theme's root directory
+        define( 'AF_THEME_DIRURL', get_template_directory_uri() );
         wp_register_style(
             'college-styles',
             AF_THEME_DIRURL . '/css/college.css',
